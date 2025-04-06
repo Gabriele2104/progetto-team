@@ -1,0 +1,231 @@
+/*----- General Purpose -----*/
+
+* {
+  /*Con border-box comprendo nella
+    larghezza anche i padding e i bordi.*/
+  box-sizing: border-box;
+
+  /*Con content-box NON comprendo nella
+    larghezza anche i padding e i bordi.
+    box-sizing: content-box;*/
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  /*font-size: 32px;*/
+}
+
+/*----- Header -----*/
+
+.header {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  /*background-color: blue;*/
+  padding: 10% 3%;
+  color: white;
+  text-align: center;
+}
+
+.headerImage {
+  background-image: url("../images/team.jpeg");
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.header > h1 {
+  width: max-content;
+  margin: 0 auto;
+  background-color: rgba(50, 50, 50, 0.1);
+  font-size: 3.5em;
+}
+
+.header > p {
+  width: max-content;
+  margin: 0 auto;
+  /*background-color: rgba(50, 50, 50, 0.5);*/
+  font-size: 2.7em;
+}
+
+.spacer {
+  padding: 1% 0px;
+}
+
+/*----- Section -----*/
+
+/*.section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 1px solid #AAA;
+    border-radius: 10px;
+    padding: 1%;
+}*/
+
+.rowSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.columnSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 2%;
+}
+
+/*----- Banner Section -----*/
+
+/*.bannerSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 1px solid aqua;
+    border-radius: 10px;
+    padding: 1%;
+}*/
+
+/*.innerBannerSection {
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+    padding: 1%;
+}*/
+
+/*----- Founder Section -----*/
+
+/*.founderSection {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid aqua;
+    border-radius: 10px;
+    padding: 1%;
+}*/
+
+/*.founderSection > ul {
+    padding: 0;
+    list-style-type: none;
+}*/
+
+/*----- Button -----*/
+
+#dataButton {
+  display: block;
+  background-color: #041aaa;
+  width: 130px;
+  color: white;
+  padding: 10px 18px;
+  /*border: 1px solid rgb(74, 37, 37);*/
+  border: none;
+  border-radius: 4px;
+  margin: 8px 0;
+  cursor: pointer;
+}
+
+#dataButton:hover {
+  background-color: #046daa;
+}
+
+/*----- Table -----*/
+
+table,
+th,
+td {
+  border: 1px solid #aaa;
+  /*position:fixed;*/
+  border-radius: 4px;
+}
+
+td {
+  padding: 10px;
+}
+
+.interactiveTd {
+  cursor: pointer;
+}
+
+/*----- Colours -----*/
+
+.pBlue {
+  background-color: rgb(37, 138, 214);
+}
+
+.pAzzurro {
+  background-color: rgb(110, 171, 218);
+}
+
+.pRosso {
+  background-color: rgb(142, 33, 33);
+}
+
+.pRosa {
+  background-color: rgb(218, 110, 189);
+}
+
+.pGiallo {
+  background-color: rgb(215, 212, 12);
+}
+
+/*----- Border Colours -----*/
+
+.aaa {
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  padding: 1%;
+}
+
+.aqua {
+  border: 1px solid aqua;
+  border-radius: 10px;
+  padding: 1%;
+}
+
+/*----- Media Query -----*/
+
+@media (max-width: 1200px) {
+  .header > h1 {
+    font-size: 3.3em;
+  }
+
+  .header > p {
+    font-size: 2.5em;
+  }
+}
+
+@media (max-width: 992px) {
+  .header > h1 {
+    font-size: 2.7em;
+  }
+
+  .header > p {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 768px) {
+  .header > h1 {
+    font-size: 2.1em;
+  }
+
+  .header > p {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 576px) {
+  .header > h1 {
+    font-size: 1.5em;
+  }
+
+  .header > p {
+    font-size: 1em;
+  }
+}
+
+#pTitolo {
+  font-size: 50px;
+  background-color: grey;
+}
