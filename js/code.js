@@ -108,21 +108,49 @@ const getData = async (pageCounterParam) => {
   //let path = "https://www.fghgkhfkf.com";
 
   try {
-    const response = await axios.get(path);
+        const response = await axios.get(path);
+        console.log("Dati originali:", response.data);
 
-    console.log(response.data);
+        // Simula paginazione: 6 utenti per pagina
+        const perPage = 6;
+        const startIndex = (pageCounterParam - 1) * perPage;
+        const endIndex = startIndex + perPage;
+        const usersSlice = response.data.slice(startIndex, endIndex);
 
-    isLoaded = false;
-    console.log("isLoaded from response: " + isLoaded);
+        // Adatta i dati al formato che buildTable si aspetta
+        const adaptedData = {
+            page: pageCounterParam,
+            per_page: perPage,
+            total: response.data.length,
+            total_pages: Math.ceil(response.data.length / perPage),
+            data: usersSlice.map(user => ({
+                id: user.id,
+                email: user.email,
+                first_name: user.name.split(' ')[0] || user.username,
+                last_name: user.name.split(' ').slice(1).join(' ') || user.username,
+                avatar: `https://i.pravatar.cc/150?img=${user.id}`
+            }))
+        };
 
-    buildTable(response.data);
-    window.onresize = pageResized;
-  } catch (error) {
-    console.log("error: " + error);
+        console.log("Dati adattati:", adaptedData);
 
-    isLoaded = false;
-    console.log("isLoaded from error: " + isLoaded);
-  }
+        isLoaded = false;
+        console.log("isLoaded from response: " + isLoaded);
+
+        buildTable(adaptedData);
+        window.onresize = pageResized;
+
+    } catch (error) {
+        console.error("Errore completo:", error);
+
+        const container = document.getElementById("container");
+        if (container) {
+            container.innerHTML = `<p style="color: red; padding: 20px; text-align: center;">❌ Errore nel caricamento dei dati</p>`;
+        }
+
+        isLoaded = false;
+        console.log("isLoaded from error: " + isLoaded);
+    }
 };
 
 /*
